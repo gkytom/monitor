@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>首页</title>
+    {% load staticfiles %}
+    <script src="http://apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+	<link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'bootstrap/css/bootstrap.css' %}" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'bootstrap/js/bootstrap.js' %}"></script>
+</head>
+<body>
+<div class="top" style="height: 50px;
+            width:100%;
+            background:rgb(189, 181, 181);
+            position: fixed; /*固定在顶部*/
+            top: 0;">
+    <p style="font-size: 40px;width: 100%;height: 45px;display: block;line-height: 45px;text-align: center;">监控平台</p>
+</div>
+<ul class="nav nav-tabs" id="myTab">
+  <li class="active" style="font-size: 20px;"><a href="#home">首页</a></li>
+    <li><a href="#profile">监控项配置</a></li>
+  <li><a href="#messages">消息</a></li>
+  <li><a href="#settings">设置</a></li>
+</ul>
+
+<div class="tab-content">
+  <div class="tab-pane active" id="home">.首页内容..</div>
+  <div class="tab-pane" id="profile">
+      <p style="text-align: center;font-size: 30px">请填写监控配置表单</p>
+
+      <form style="text-align: center;font-size: 20px" action="/addmonitor/" method = "get" >
+
+          <p><span>所属系统：</span><input type="text" placeholder="系统名" name="sys_name"></p>
+          <p><span>所属模块：</span><input type="text" placeholder="模块名" name="mode_name" ></p>
+          <p><span>主机名：</span><input type="text" placeholder="主机名" name="host_name"></p>
+          <p><span>监控进程：</span><input type="text" placeholder="监控进程名" name="proc_name"></p>
+           <input id="date" name="create_time" type="date"/>
+          <input type="submit" value="提交" class="login_btn">
+        </form>
+    </div>
+<script>
+    var form = document.forms[0],
+        submit = document.querySelector(".login_btn"),
+        inputBtn = document.getElementsByTagName("input");
+        console.log(form);
+    form.onsubmit = function(){
+        if(inputBtn[0].value == ""){
+            alert("请填写系统名！");
+            return false;
+        }else if(inputBtn[1].value == ""){
+            alert("请填写模块名！");
+            return false;
+        }else if(inputBtn[2].value == ""){
+            alert("请填写主机名");
+            return false;
+
+        }
+
+    }
+</script>
+{#      <form style="text-align: center;font-size: 20px" action="/addmonitor/"#}
+{#            method="get" name="addbook" onsubmit="return check()">#}
+{#      {% csrf_token %}#}
+{#          <p><span>所属系统：</span><input type="text" placeholder="系统名" name="sys_name"></p>#}
+{#          <p><span>所属模块：</span><input type="text" placeholder="模块名" name="mode_name" ></p>#}
+{#          <p><span>主机名：</span><input type="text" placeholder="主机名" name="host_name"></p>#}
+{#          <p><span>监控进程：</span><input type="text" placeholder="监控进程名" name="proc_name"></p>#}
+{#           <input id="date" name="create_time" type="date"/>#}
+{#          <input type="submit" value="提交">#}
+{#      </form>#}
+{#  </div>#}
+{#<script>#}
+{#function check(){#}
+{#var name = document.getElementsByTagName('input');#}
+{#if(name==""){#}
+{#    alert("模块不能为空！");#}
+{#    return false;#}
+{#}#}
+{#}#}
+{#</script>#}
+
+
+
+
+  <div class="tab-pane" id="messages">.消息内容..</div>
+  <div class="tab-pane" id="settings">.设置内容..</div>
+</div>
+
+<script>
+  $(function () {
+    $('#myTab a:first').tab('show');
+  })
+  $('#myTab a').click(function (e) {
+  e.preventDefault();
+  $(this).tab('show');
+})
+</script>
+
+
+
+</body>
+</html>
