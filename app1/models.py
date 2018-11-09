@@ -28,6 +28,16 @@ class Machine(models.Model):
     system = models.ForeignKey(System,on_delete=models.CASCADE)
     mode=models.ForeignKey(Mode,on_delete=models.CASCADE)
 
+class api(models.Model):
+    '''
+    系统名表
+    '''
+    api_name = models.CharField(max_length=100)
+    api_address = models.CharField(max_length=100)
+    api_cycle=models.IntegerField(default=0)
+    def __str__(self):
+        return self.api_name,self.api_address
+
 
 
 

@@ -23,7 +23,7 @@
 <ul class="nav nav-tabs" id="myTab">
   <li class="active" style="font-size: 20px;"><a href="#home">首页</a></li>
     <li><a href="#profile">监控项配置</a></li>
-  <li><a href="#messages">消息</a></li>
+  <li><a href="#messages">API接口健康检查</a></li>
   <li><a href="#settings">设置</a></li>
 </ul>
 
@@ -62,31 +62,30 @@
 
     }
 </script>
-{#      <form style="text-align: center;font-size: 20px" action="/addmonitor/"#}
-{#            method="get" name="addbook" onsubmit="return check()">#}
-{#      {% csrf_token %}#}
-{#          <p><span>所属系统：</span><input type="text" placeholder="系统名" name="sys_name"></p>#}
-{#          <p><span>所属模块：</span><input type="text" placeholder="模块名" name="mode_name" ></p>#}
-{#          <p><span>主机名：</span><input type="text" placeholder="主机名" name="host_name"></p>#}
-{#          <p><span>监控进程：</span><input type="text" placeholder="监控进程名" name="proc_name"></p>#}
-{#           <input id="date" name="create_time" type="date"/>#}
-{#          <input type="submit" value="提交">#}
-{#      </form>#}
-{#  </div>#}
-{#<script>#}
-{#function check(){#}
-{#var name = document.getElementsByTagName('input');#}
-{#if(name==""){#}
-{#    alert("模块不能为空！");#}
-{#    return false;#}
-{#}#}
-{#}#}
-{#</script>#}
+
+  <div class="tab-pane" id="messages">
+      <p style="text-align: center;font-size: 30px">请填写API接口</p>
+<form style="text-align: center;font-size: 20px" action="/addapi/" method = "get" name="api">
+          <p><span>接口名称：</span><input type="text" placeholder="接口名称" name="api_name"></p>
+          <p><span>接口路径：</span><input type="text" placeholder="接口路径" name="api_address" ></p>
+          <p><span>轮询周期：</span><input type="text" placeholder="轮询周期" name="api_cycle" ></p>
+          <input type="submit" value="提交" class="login_api">
+        </form>
+  <form style="text-align: center;font-size: 20px" action="/find_api/" method = "get" name="find_api">
+        <input type="submit" value="查询已有接口" class="find_api">
+  </form>
+      <p style="text-align: center;font-size: 30px">已有API接口信息</p>
+        {% for name in api_name %}
+        <p style="font-size: 20px; float:left; ">{{name.api_name}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+            <a href="{{name.api_address}}" target="_Blank" style="font-size: 20px;float:left; ">{{name.api_address}}&nbsp;&nbsp;&nbsp;&nbsp;</a>
+            <p style="font-size: 20px">状态：{{ status }}</p>
+        {% endfor %}
+
+</div>
 
 
 
 
-  <div class="tab-pane" id="messages">.消息内容..</div>
   <div class="tab-pane" id="settings">.设置内容..</div>
 </div>
 

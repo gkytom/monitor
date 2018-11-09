@@ -31,3 +31,11 @@ on_delete参数必须要写出
 	models：数据库模型，类名为表，属性为字段，实例对象为数据
 	urls:浏览器访问路径Url设置
 	views:执行的操作
+
+#11.9
+
+##1. 
+js的代码实现部分不能放在html的div中
+
+##2. 
+	document.form[n],n是一个html文件中包含的表单数量角标，从0开始
