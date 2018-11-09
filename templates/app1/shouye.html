@@ -28,8 +28,8 @@
 </ul>
 
 <div class="tab-content">
-  <div class="tab-pane active" id="home">.首页内容..</div>
-  <div class="tab-pane" id="profile">
+  <div class="tab-pane " id="home">.首页内容..</div>
+  <div class="tab-pane " id="profile">
       <p style="text-align: center;font-size: 30px">请填写监控配置表单</p>
 
       <form style="text-align: center;font-size: 20px" action="/addmonitor/" method = "get" >
@@ -63,7 +63,7 @@
     }
 </script>
 
-  <div class="tab-pane" id="messages">
+  <div class="tab-pane active" id="messages">
       <p style="text-align: center;font-size: 30px">请填写API接口</p>
 <form style="text-align: center;font-size: 20px" action="/addapi/" method = "get" name="api">
           <p><span>接口名称：</span><input type="text" placeholder="接口名称" name="api_name"></p>
@@ -91,7 +91,7 @@
 
 <script>
   $(function () {
-    $('#myTab a:first').tab('show');
+    $('#myTab a:eq(2)').tab('show');
   })
   $('#myTab a').click(function (e) {
   e.preventDefault();

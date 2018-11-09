@@ -125,7 +125,7 @@ def findapi(request):
         status = SubThread.data["key"]
 
         del SubThread.data["key"]
-    return render(request, 'app1/shouye.html',locals())
+    return render(request, 'app1/shouye.html/',locals())
 
 
 def add_api(request):
