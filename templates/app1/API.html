@@ -3,7 +3,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>首页</title>
+	<title>API监控</title>
     {% load staticfiles %}
     <script src="http://apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
     <script src="http://code.jquery.com/jquery-latest.js"></script>
@@ -11,7 +11,6 @@
     <link href="{% static 'bootstrap/css/bootstrap.css' %}" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'bootstrap/js/bootstrap.js' %}"></script>
-
 </head>
 <body>
 <div class="top" style="height: 50px;
@@ -76,27 +75,13 @@
         <input type="submit" value="查询已有接口" class="find_api">
   </form>
       <p style="text-align: center;font-size: 30px">已有API接口信息</p>
-  <table class="table table-bordered" id="table_page" align="center" style="font-size: 20px;
-         width: 1500px; text-align: center;">
         {% for name in api_name %}
-            <tr>
-                <td>{{ forloop.counter }}</td><td>{{ name.api_name }}</td>
-                <td><a href="{{name.api_address}}">{{name.api_address}}</a></td>
-                <td>接口状态:{{name.api_status}}</td>
-            </tr>
+        <p style="font-size: 20px; float:left; ">{{name.api_name}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+            <a href="{{name.api_address}}" target="_Blank" style="font-size: 20px;float:left; ">{{name.api_address}}&nbsp;&nbsp;&nbsp;&nbsp;</a>
+            <p style="font-size: 20px">状态：{{ status }}</p>
         {% endfor %}
-  </table>
-  <ul class="pagination" >
-  <li><a href="#">&laquo;</a></li>
-      {% for num in api_num_list %}
-	<li><a href="/?page={{ num }}" >{{ num }}</a></li>
-      {% endfor %}
-  <li><a href="#">&raquo;</a></li>
-</ul>
 
-
-
-  </div>
+</div>
 
 
 
@@ -106,7 +91,7 @@
 
 <script>
   $(function () {
-    $('#myTab a:eq(0)').tab('show');
+    $('#myTab a:eq(2)').tab('show');
   })
   $('#myTab a').click(function (e) {
   e.preventDefault();

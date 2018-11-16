@@ -124,3 +124,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+
+CACHES = {
+		    'default': {
+			'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
+			'LOCATION': 'my_cache_table',
+		    }
+		}

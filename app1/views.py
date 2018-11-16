@@ -8,11 +8,16 @@ from django.http import HttpResponseRedirect
 import requests
 import threading
 import time
+from django.views.decorators.cache import cache_page
 
 
 def index(request):
-    # return render(request, 'app1/shouye.html')
-    api_name=api.objects.all()
+    api_num=len(api.objects.all())
+    api_num_list=[]
+    for i in range(0,api_num):
+        api_num_list.append(i+1)
+    api_name=api.objects.all()[0:1]
+
     return render(request,'app1/shouye.html',locals())
 def apply_monitor(request):
     return render(request,'app1/monitor_push.html')
@@ -100,7 +105,7 @@ class SubThread():
 
 
 
-
+@cache_page(60)
 def findapi(request):
     '''
     刷新API状态函数,用多线程
@@ -117,15 +122,21 @@ def findapi(request):
         obj=SubThread()
         t_each = threading.Thread(target=obj.check_status, args=(api.objects.values("api_address")[thread]['api_address'],api_cycle,))
         thread_list.append(t_each)
-
-    for t in thread_list:
-        t.setDaemon(True)  # 设置为守护线程
-        t.start()
-        t.join()  # 在这个子线程完成运行之前，主线程将一直被阻塞
+    status_list=[]
+    for t in range(0,len(thread_list)):
+        thread_list[t].setDaemon(True)  # 设置为守护线程
+        thread_list[t].start()
+        thread_list[t].join()  # 在这个子线程完成运行之前，主线程将一直被阻塞
         status = SubThread.data["key"]
-
+        obj_api_status=api.objects.get(id=t+1)
+        obj_api_status.api_status=status
+        obj_api_status.save()
+        status_list.append(status)
         del SubThread.data["key"]
-    return render(request, 'app1/shouye.html/',locals())
+
+    '''将api状态写到status字段中'''
+    print('接口信息为'+str(status_list))
+    return render(request, 'app1/API.html/',locals())
 
 
 def add_api(request):

@@ -34,6 +34,7 @@ class api(models.Model):
     '''
     api_name = models.CharField(max_length=100)
     api_address = models.CharField(max_length=100)
+    api_status = models.CharField(max_length=100)
     api_cycle=models.IntegerField(default=0)
     def __str__(self):
         return self.api_name,self.api_address
