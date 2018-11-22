@@ -13,10 +13,11 @@ from django.views.decorators.cache import cache_page
 
 def index(request):
     api_num=len(api.objects.all())
-    api_num_list=[]
-    for i in range(0,api_num):
-        api_num_list.append(i+1)
-    api_name=api.objects.all()[0:1]
+    api_num_list = []
+    api_num_fen = int((api_num + 2 - 1) / 2)
+    for i in range(0, api_num_fen):
+        api_num_list.append(i + 1)
+    api_name=api.objects.all()[0:2]
 
     return render(request,'app1/shouye.html',locals())
 def apply_monitor(request):
@@ -63,6 +64,14 @@ def add_data(request):
                 print('重复数据无需添加')
         except:
             print('获取系统名失败')
+        '''
+        主机表
+        '''
+        machine = Machine()
+        machine.hostname = hostname
+        machine.procname = proname
+        machine.created_time = createtime
+        machine.save()
 
     else:
         sysname = request.GET["sys_name"]
@@ -71,6 +80,10 @@ def add_data(request):
         proname = request.GET["proc_name"]
         createtime = request.GET["create_time"]
     return HttpResponseRedirect('/addok/')
+
+
+
+
 class SubThread():
     data = {}
     def __init__(self):
@@ -115,6 +128,11 @@ def findapi(request):
     api_name = api.objects.all()  # 获取全部字段信息
     api_cycle = api.objects.values("api_cycle")[len(api.objects.values("api_cycle"))-1]["api_cycle"]
     print(api_cycle)
+    api_num = len(api.objects.all())
+    api_num_list = []
+    api_num_fen = int((api_num + 2 - 1) / 3)
+    for i in range(0, api_num_fen):
+        api_num_list.append(i + 1)
     api_sum = len(api.objects.values("api_address")) # API接口总数数组
     print('thread %s is running...' % threading.current_thread().name)
     thread_list = []
@@ -135,8 +153,15 @@ def findapi(request):
         del SubThread.data["key"]
 
     '''将api状态写到status字段中'''
+
     print('接口信息为'+str(status_list))
-    return render(request, 'app1/API.html/',locals())
+    api_name = api.objects.all()[0:3]
+    # return render(request, 'app1/fenyezhanshi.html/',locals())
+    return render(request, 'app1/whole_api_show.html/', locals())
+
+
+
+
 
 
 def add_api(request):
@@ -179,3 +204,33 @@ def add_api(request):
 def addok(request):
 
     return render(request,'app1/addok.html')
+
+def fenye(request):
+    api_num = len(api.objects.all())
+    api_num_list = []
+    api_num_fen = int((api_num + 2 -1)/2)
+    for i in range(0, api_num_fen):
+        api_num_list.append(i + 1)
+    current_page = request.GET.get('page', 1)
+    print('获取的分页数为：')
+    print(current_page)
+    # start = (int(current_page)-1)*10
+    start = (int(current_page) - 1) * 2
+    end = int(current_page)*2
+    api_name  = api.objects.all()[start:end]
+    return render(request,'app1/API.html',locals())
+
+def find_api_show(request):
+    api_num = len(api.objects.all())
+    api_num_list = []
+    api_num_fen = int((api_num + 2 - 1) / 3)
+    for i in range(0, api_num_fen):
+        api_num_list.append(i + 1)
+    current_page = request.GET.get('page', 1)
+    print('获取的分页数为：')
+    print(current_page)
+    # start = (int(current_page)-1)*10
+    start = (int(current_page) - 1) * 3
+    end = int(current_page) * 3
+    api_name = api.objects.all()[start:end]
+    return render(request, 'app1/whole_api_show.html', locals())

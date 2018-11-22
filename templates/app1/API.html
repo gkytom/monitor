@@ -75,11 +75,23 @@
         <input type="submit" value="查询已有接口" class="find_api">
   </form>
       <p style="text-align: center;font-size: 30px">已有API接口信息</p>
+  <table class="table table-bordered" id="table_page" align="center" style="font-size: 20px;
+         width: 1500px; text-align: center;">
         {% for name in api_name %}
-        <p style="font-size: 20px; float:left; ">{{name.api_name}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-            <a href="{{name.api_address}}" target="_Blank" style="font-size: 20px;float:left; ">{{name.api_address}}&nbsp;&nbsp;&nbsp;&nbsp;</a>
-            <p style="font-size: 20px">状态：{{ status }}</p>
+            <tr>
+                <td>{{ name.id }}</td><td>{{ name.api_name }}</td>
+                <td><a href="{{name.api_address}}">{{name.api_address}}</a></td>
+                <td>接口状态:{{name.api_status}}</td>
+            </tr>
         {% endfor %}
+  </table>
+  <ul class="pagination" >
+  <li><a href="#">&laquo;</a></li>
+      {% for num in api_num_list %}
+	<li><a href="/fenye/?page={{ num }}" >{{ num }}</a></li>
+      {% endfor %}
+  <li><a href="#">&raquo;</a></li>
+</ul>
 
 </div>
 
@@ -99,7 +111,11 @@
 })
 </script>
 
-
+<script>
+    $.ajaxSetup({
+    async : false
+});
+</script>
 
 </body>
 </html>

@@ -9,4 +9,6 @@ urlpatterns = [
     url(r'^find_api/$', views.findapi, name='find_api'),
     url(r'^check_status/$', views.SubThread().check_status, name='check_status'),
     url(r'^addok/$', views.addok, name='addok'),
+    url(r'^fenye/$', views.fenye, name='fenye'),
+    url(r'^find_api_show/$', views.find_api_show, name='find_api_show'),
 ]
