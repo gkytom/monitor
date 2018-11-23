@@ -234,3 +234,6 @@ def find_api_show(request):
     end = int(current_page) * 3
     api_name = api.objects.all()[start:end]
     return render(request, 'app1/whole_api_show.html', locals())
+
+def shouye(request):
+    return render(request,'app1/menhu.html')

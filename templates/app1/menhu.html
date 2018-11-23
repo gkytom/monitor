@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <!-- 若您需要使用Kendo UI Professional，请联系版权人获得合法的授权或许可。 -->
+
+    <!-- Bootstrap css -->
+    <link href="https://magicbox.bk.tencent.com/static_api/v3/assets/bootstrap-3.3.4/css/bootstrap.min.css" rel="stylesheet">
+    <!-- kendo ui css -->
+    <link href="https://magicbox.bk.tencent.com/static_api/v3/assets/kendoui-2015.2.624/styles/kendo.common.min.css" rel="stylesheet">
+    <link href="https://magicbox.bk.tencent.com/static_api/v3/assets/kendoui-2015.2.624/styles/kendo.default.min.css" rel="stylesheet">
+    <!-- font-awesome -->
+    <link href="https://magicbox.bk.tencent.com/static_api/v3/assets/fontawesome/css/font-awesome.css" rel="stylesheet">
+    <!--蓝鲸提供的公用样式库 -->
+    <link href="https://magicbox.bk.tencent.com/static_api/v3/bk/css/bk.css" rel="stylesheet">
+    <!-- 如果要使用Bootstrap的js插件，必须先调入jQuery -->
+    <script src="https://magicbox.bk.tencent.com/static_api/v3/assets/js/jquery-1.10.2.min.js"></script>
+    <!-- 包括所有bootstrap的js插件或者可以根据需要使用的js插件调用　-->
+    <script src="https://magicbox.bk.tencent.com/static_api/v3/assets/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+    <!-- 包括所有kendoui的js插件或者可以根据需要使用的js插件调用　-->
+    <script src="https://magicbox.bk.tencent.com/static_api/v3/assets/kendoui-2015.2.624/js/kendo.all.min.js"></script>
+    <script src="https://magicbox.bk.tencent.com/static_api/v3/bk/js/bk.js"></script>
+    <!-- 以下两个插件用于在IE8以及以下版本浏览器支持HTML5元素和媒体查询，如果不需要用可以移除 -->
+    <!--[if lt IE 9]>
+    <script src="https://magicbox.bk.tencent.com/static_api/v3/assets/js/html5shiv.min.js"></script>
+    <script src="https://magicbox.bk.tencent.com/static_api/v3/assets/js/respond.min.js"></script>
+    <![endif]-->
+    <!-- 数据埋点统计 -->
+    <script src="http://magicbox.bk.tencent.com/static_api/analysis.js"></script>
+</head>
+
+<body>
+    <!--HTML-->
+<div class="king-layout-container" id="layoutPanel">
+    <!-- header -->
+    <nav>
+        <div class="navbar king-horizontal-nav1" id="nav1_demo1">
+            <div class="navbar-container">
+
+                        <div class="king-vertical-nav4" style="width:200px;" id="king-vertical-nav4">
+            <div class="sidebar-inner">
+                <ul class="navi">
+                    <li>
+                        <a href="javascript:;">
+                            <i class="fa fa-gear"></i>首页
+                        </a>
+                    </li>
+                    <li class="has_submenu current open">
+                        <a href="javascript:;">
+                            <i class="fa fa-wrench"></i>表单
+                            <span class="pull-right"><i class="fa fa-angle-down"></i></span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li class="active">
+                                <a href="javascript:;">表单一<i class="fa fa-chevron-right pull-right"></i></a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">表单二<i class="fa fa-chevron-right pull-right"></i></a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">表单三<i class="fa fa-chevron-right pull-right"></i></a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="has_submenu">
+                        <a href="javascript:;">
+                            <i class="fa fa-tasks"></i>表格
+                            <span class="pull-right"><i class="fa fa-angle-down"></i></span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="javascript:;">表格一<i class="fa fa-chevron-right pull-right"></i></a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">表格二<i class="fa fa-chevron-right pull-right"></i></a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="last has_submenu">
+                        <a href="javascript:;">
+                            <i class="fa fa-ellipsis-h"></i>其他
+                            <span class="pull-right"><i class="fa fa-angle-down"></i></span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="javascript:;">空白<i class="fa fa-chevron-right pull-right"></i></a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--JS-->
+        <script>
+        $(function() {
+            //king-vertical-nav4_js_start
+            //纵向导航一-1，侧边二级菜单
+            $(".has_submenu > a").click(function(e) {
+
+                var menu = $(this).parent("li");
+                var sunMenu = $(this).next("ul");
+
+                if (menu.hasClass("open")) {
+                    sunMenu.slideUp(350,function(){
+                        menu.removeClass("open");
+                    });
+
+                } else {
+                    $(".navi > li > ul").slideUp(350);
+
+                    setTimeout(function(){
+                        $(".navi > li").removeClass("open");
+                        sunMenu.slideDown(350);
+                        menu.addClass("open");
+                    },350);
+
+                }
+
+                return false;
+            });
+            //king-vertical-nav4_js_end
+        });
+        </script>
+                <ul class="nav navbar-nav pull-left">
+                    <li class="active"><a href="javascript:;">首页</a></li>
+                    <li><a href="javascript:;">关于我们</a></li>
+                    <li><a href="javascript:;">最新资讯</a></li>
+                    <li><a href="javascript:;">联系我们</a></li>
+                </ul>
+                <div class="navbar-header pull-right">
+                    <ul class="nav">
+                        <li class="user-info">
+                            <a href="javascript:;">
+                                <img class="img-rounded" src="https://magicbox.bk.tencent.com/static_api/v3/components/horizontal_nav1/images/avatar.png">
+                                <span>admin</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!--  -->
+    <div class="king-layout-main">
+        <div class="king-breadcrumb">
+            <span class="king-breadcrumb-link">Home</span>
+            <span class="king-breadcrumb-separator">/</span>
+            <span class="king-breadcrumb-link">List</span>
+            <span class="king-breadcrumb-separator">/</span>
+            <span class="king-breadcrumb-link">App</span>
+        </div>
+        <div class="king-layout-content king-layout-has-slider king-flexible-setting king-flex-auto king-content-scroll">
+            <div class="king-layout-slider">
+                <ul class="king-menu-inline">
+                    <li class="king-menu-submenu show-items">
+                        <div class="king-menu-submenu-title">
+                            <span class="glyphicon glyphicon-th-large submenu-icon" aria-hidden="true"></span>分类一
+                            <span class="glyphicon glyphicon-menu-up fr up-down-icon" aria-hidden="true"></span>
+                        </div>
+                        <ul class="king-menu-inline king-menu-item-list default-list" style="display: block;">
+                            <li class="king-menu-item king-menu-item-selected">option1</li>
+                            <li class="king-menu-item">option2</li>
+                            <li class="king-menu-item">option3</li>
+                            <li class="king-menu-item">option4</li>
+                        </ul>
+                    </li>
+                    <li class="king-menu-submenu">
+                        <div class="king-menu-submenu-title">
+                            <span class="glyphicon glyphicon-th-large submenu-icon" aria-hidden="true"></span>分类二
+                            <span class="glyphicon glyphicon-menu-up fr up-down-icon" aria-hidden="true"></span>
+                        </div>
+                        <ul class="king-menu-inline king-menu-item-list">
+                            <li class="king-menu-item">option1</li>
+                            <li class="king-menu-item">option2</li>
+                            <li class="king-menu-item">option3</li>
+                            <li class="king-menu-item">option4</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="king-slider-content king-flex-y">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th style="width: 10px">#</th>
+                            <th style="width:20%;">任务</th>
+                            <th>进度</th>
+                            <th>开发者</th>
+                            <th>结束时间</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1.</td>
+                            <td>版本更新</td>
+                            <td>
+                                完成
+                            </td>
+                            <td>管理员</td>
+                            <td>2015-09-20</td>
+                        </tr>
+                        <tr>
+                            <td>2.</td>
+                            <td>数据备份</td>
+                            <td>
+                                70%
+                            </td>
+                            <td>管理员</td>
+                            <td>2015-09-20</td>
+                        </tr>
+                        <tr>
+                            <td>3.</td>
+                            <td>定时任务</td>
+                            <td>
+                                未开始
+                            </td>
+                            <td>管理员</td>
+                            <td>2015-09-20</td>
+                        </tr>
+                        <tr>
+                            <td>4.</td>
+                            <td>修复bug</td>
+                            <td>
+                                已结束
+                            </td>
+                            <td>管理员</td>
+                            <td>2015-09-20</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- footer -->
+    <div class="king-layout-footer"> Copyright © 2012-2017 Tencent BlueKing. All Rights Reserved. 蓝鲸智云 版权所有</div>
+</div>
+<!--JS-->
+<script src="https://magicbox.bk.tencent.com/static_api/v3/assets/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript">
+    //layoutPanel_js_start
+    $(".king-menu-submenu-title").click(function(){
+        $(this).parent().toggleClass("show-items");
+        $(this).next().slideToggle();
+    })
+
+    $(".king-menu-item").click(function(){
+        $(".king-menu-item").removeClass("king-menu-item-selected");
+        $(this).addClass("king-menu-item-selected");
+    })
+    //layoutPanel_js_end
+</script>
+
+</body>
+
+</html>
