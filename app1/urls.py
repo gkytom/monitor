@@ -12,4 +12,7 @@ urlpatterns = [
     url(r'^fenye/$', views.fenye, name='fenye'),
     url(r'^find_api_show/$', views.find_api_show, name='find_api_show'),
     url(r'^shouye/$', views.shouye, name='shouye'),
+    url(r'^ECS/$', views.ECS, name='ECS'),
+    url(r'^ECSapply/$', views.ECSapply, name='ECSapply'),
+    url(r'^controltable/$', views.controltable, name='controltable'),
 ]

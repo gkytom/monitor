@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title></title>
+    <title>云服务器</title>
     <!-- 若您需要使用Kendo UI Professional，请联系版权人获得合法的授权或许可。 -->
     <!-- Bootstrap css -->
     <link href="https://magicbox.bk.tencent.com/static_api/v3/assets/bootstrap-3.3.4/css/bootstrap.min.css" rel="stylesheet">
@@ -44,10 +44,50 @@
                     </div>
                     <div class="king-header-list" style="float:right;" >
                         <ul>
-                            <li style="font-size: 20px;"> 控制台&nbsp;</li>
-                            <li style="font-size: 20px;"> 注册 &nbsp;</li>
-                            <li style="font-size: 20px;"> 登录 </li>
+                            <li >
+                                <a style="font-size: 20px;" href="/controltable/">控制台&nbsp;</a>
+                            </li>
+                            <div class="king-header-list list1" style="font-size: 20px">
+                            <ul>
+                                <li>
+                                    <a href="javascript:void(0);" class="f14">
+                                        <span style="font-size: 20px;">某某托管方用户</span>
+                                    </a>
+                                    <ul class="king-submenu">
+                                        <li>
+                                            <a href="javascript:void(0);">
+                                                <span style="font-size: 20px;">账号信息</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0);">
+                                                <span style="font-size: 20px;">配额中心</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0);">
+                                                <span style="font-size: 20px;">未读消息</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0);">
+                                                <span style="font-size: 20px;">我的工单</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void(0);">
+                                                <span style="font-size: 20px;">退出</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+
+                        </div>
+
                         </ul>
+
+
                     </div>
                         <div class="king-header-list list1" style="float: left">
                             <ul>
@@ -60,6 +100,7 @@
                                 <li>
                                     <a href="javascript:void(0);" class="f14">
                                         <span style="font-size: 20px">云产品</span>
+
                                     </a>
                                     <ul class="king-submenu">
                                         <div class="king-page-box">
@@ -77,7 +118,7 @@
                                                 </thead>
                                                 <tbody>
                                                     <tr>
-                                                        <td><a href="/ECS/">云服务器</a></td>
+                                                        <td>云服务器</td>
                                                         <td>云数据库Mysql</td>
                                                         <td>负载均衡</td>
                                                         <td>Ddos防护</td>
@@ -276,25 +317,84 @@
             </nav>
         </div>
 
-         <div class="king-layout2-main mt15" style="width:960px;">
+         <div class="king-layout1-sidebar" style="width:216px; font-size: 20px">
+             <nav style="height:100%; font-size: 20px" class="   f14">
+                    <div class="king-vertical-nav4">
+                        <div class="sidebar-inner">
+                            <ul class="navi" style="font-size: 20px">
+                                <li class="has_submenu current open c-open active" style="font-size: 20px">
+                                    <a href="javascript:void(0);"> <i class="fa fa-gear ">                        </i>
+                                        <span style="font-size: 20px">云服务器</span>
+                                        <span class="pull-right"><i class="fa fa-angle-down"></i></span>
+                                    </a>
+                                    <ul class="sub-menu">
+                                        <li><a href="javascript:void(0);" style="font-size: 20px">云主机<i class="fa fa-chevron-right pull-right"></i></a></li>
+                                        <li><a href="" style="font-size: 20px">云容器<i class="fa fa-chevron-right pull-right"></i></a></li>
+                                    </ul>
+                                </li>
+                                <li class="has_submenu current open c-open">
+                                    <a href="javascript:void(0); "> <i class="fa fa-wrench ">                        </i>
+                                        <span style="font-size: 20px">网络参数</span>
+                                        <span class="pull-right"><i class="fa fa-angle-down"></i></span>
+                                    </a>
+                                    <ul class="sub-menu">
+                                        <li><a href="javascript:void(0);" style="font-size: 20px">网络访问关系<i class="fa fa-chevron-right pull-right"></i></a></li>
+                                        <li><a href="javascript:void(0);" style="font-size: 20px">负载均衡<i class="fa fa-chevron-right pull-right"></i></a></li>
+                                        <li><a href="javascript:void(0);" style="font-size: 20px">域名<i class="fa fa-chevron-right pull-right"></i></a></li>
+                                    </ul>
+                                </li>
+                                <li class="has_submenu current open c-open">
+                                    <a href="javascript:void(0);"> <i class="fa fa-tasks ">                        </i>
+                                        <span style="font-size: 20px">负载均衡</span>
+                                        <span class="pull-right"><i class="fa fa-angle-down"></i></span>
+                                    </a>
+                                    <ul class="sub-menu">
+                                        <li><a href="javascript:void(0);" style="font-size: 20px">类型一<i class="fa fa-chevron-right pull-right"></i></a></li>
+                                        <li><a href="javascript:void(0);" style="font-size: 20px">类型二<i class="fa fa-chevron-right pull-right"></i></a></li>
+                                    </ul>
+                                </li>
+                                <li class="has_submenu current open c-open">
+                                    <a href="javascript:void(0);"> <i class="fa fa-ellipsis-h ">                        </i>
+                                        <span style="font-size: 20px">其他</span>
+                                        <span class="pull-right"><i class="fa fa-angle-down"></i></span>
+                                    </a>
+                                    <ul class="sub-menu">
+                                        <li><a href="javascript:void(0);" style="font-size: 20px">运维工具<i class="fa fa-chevron-right pull-right"></i></a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+         </div>
+        <script>
+        $(function(){
+             var li = $('.navi li');
+             li.each(function(){
+             $(this).click(function(){
+             if( $(this).hasClass('c-open')){
+                $(this).find('ul').slideUp(350);
+                $(this).removeClass('c-open');
+             }else{
+               $(this).find('ul').slideDown(350);
+               $(this).addClass('c-open');
+               }
+              })
+           });
+        })
+    </script>
+
+
+
+         <div class="king-layout1-content" style="margin-left: 216px;">
                 <br><br><br>
-                 <div style="border:1px solid #000000;">
-                     <h1 style=" text-align: center;">平台简介</h1><br><br><br>
-                 </div>
+
                 <br><br><br>
-                 <div style="border:1px solid #000000;">
-                     <h1 style=" text-align: center;">产品介绍</h1><br><br><br>
-                 </div>
-                <br><br><br>
-                 <div style="border:1px solid #000000;">
-                     <h1 style=" text-align: center;">解决方案介绍</h1><br><br><br>
+                 <div >
+                     <h1 style=" text-align: center;">资源选择</h1><br><br><br>
                  </div>
 
-                <div class="king-layout1-content" >
 
-
-
-                </div>
             </div>
     </div>
 </body>
