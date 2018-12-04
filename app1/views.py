@@ -235,11 +235,3 @@ def find_api_show(request):
     api_name = api.objects.all()[start:end]
     return render(request, 'app1/whole_api_show.html', locals())
 
-def shouye(request):
-    return render(request,'app1/menhu.html')
-def ECS(request):
-    return render(request,'app1/ECS.html')
-def ECSapply(request):
-    return render(request,'app1/ECSapply.html')
-def controltable(request):
-    return render(request,'app1/controltable.html')
